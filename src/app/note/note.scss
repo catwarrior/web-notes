@@ -1,0 +1,33 @@
+.note {
+  color: #000;
+}
+
+//  .note ul {
+//      list-style: none;
+//  }
+
+//  .note li {
+//      float: left;
+//      margin: 10px;
+//      width: 300px;
+//      height: 300px;
+//      border: #000 1px solid;
+//  }
+#title {
+    margin: 10px 10px 0px 10px;
+    border-top: #000 1px solid;
+    border-left: #000 1px solid;
+    border-right: #000 1px solid;
+    padding-left: 50px;
+    text-align: left;
+}
+
+#editor {
+    margin: 0px 10px 10px 10px;
+    border-left: #000 1px solid;
+    border-right: #000 1px solid;
+    border-bottom: #000 1px solid;
+    padding: 50px 25px;
+}
+
+
