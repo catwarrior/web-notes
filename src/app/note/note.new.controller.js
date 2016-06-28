@@ -8,22 +8,26 @@
     /** @ngInject */
     function NoteNewController($location, Notes) {
         var vm = this;
-        vm.editor = new Pen('#editor');
+        var editor = new Pen('#editor');
         vm.title = '';
         vm.content = '';
         
-        vm.save = function () {
-            vm.content = vm.editor.getContent();
+        vm.add = function () {
+            vm.mainbody = editor.getContent();
             Notes.$add({
                 title: vm.title,
-                content: vm.content
+                mainbody: vm.mainbody
+            }).then(function(ref) {
+                var id = ref.key();
+                console.log("added record with id " + id);
             });
             
             vm.title = '';
             vm.content = '';
-            vm.editor.setContent(vm.content);
+            vm.editor.setContent(vm.mainbody);
 
             $location.path('/note');
         }
     }
+    
 })();

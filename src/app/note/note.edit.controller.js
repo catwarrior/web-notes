@@ -6,26 +6,26 @@
         .controller('NoteEditController', NoteEditController);
 
     /** @ngInject */
-    function NoteEditController($location, Notes) {
+    function NoteEditController($location, $stateParams, fbUrl, $wilddogObject) {
         var vm = this;
+
+        var editor = new Pen('#editor');
+
+        $wilddogObject(new Wilddog(fbUrl + "/"+ $stateParams.id)).$loaded()
+            .then(function(data) {
+                vm.note = data;
+                editor.setContent(vm.note.mainbody);
+                console.log(vm.note);
+            })
+            .catch(function(error){
+                console.log('error', error);
+            });
+
+            vm.save = function() {
+                vm.note.mainbody = editor.getContent();
+                vm.note.$save();
         
-        // vm.id = Date.now();
-        // vm.title = "adfasdfasdf";
-        // vm.content = "<h2>Enjoy live editing (+markdown)</h2>";
-
-        vm.editor = new Pen('#editor');
-
-        vm.load = function() {
-            vm.editor.setContent(vm.note.content);
-        }
-        
-        vm.save = function(){
-            vm.note.content = vm.editor.getContent();
-            vm.note.$save();
-            console.log(vm.content);
-        }
-
-        vm.load();
-
+                $location.path('/note');
+            };
     }
 })();

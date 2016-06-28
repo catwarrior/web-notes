@@ -8,29 +8,23 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
       .state('notelist', {
-        url: '/note',
+        url: '/',
         templateUrl: 'app/note/note.html',
         controller: 'NoteController',
-        controllerAs: 'notes'
+        controllerAs: 'vm'
       })
       .state('note-edit', {
-        url: '/note/edit/:id',
+        url: '/edit/:id',
         templateUrl: 'app/note/note.edit.html',
         controller: 'NoteEditController',
-        controllerAs: 'note'
+        controllerAs: 'vm'
       })
       .state('note-new', {
-        url: '/note/new',
+        url: '/new',
         templateUrl: 'app/note/note.new.html',
         controller: 'NoteNewController',
-        controllerAs: 'note'
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');

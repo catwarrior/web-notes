@@ -1,8 +1,10 @@
-<div id="title">
-    <span>标题</span>
-    <input value="{{title}}" />
-    <a href="" ng-click="note.save()">Save</a>
-</div>
-<div class="note">
+<div class="container">
+    <div id="title">
+        <div class="title-container">
+            <input ng-model="vm.note.title" />
+        </div>  
+        <div class="title-line"></div>
+    </div>
+    <a href="" ng-click="vm.save()">Save</a>
     <div id="editor"></div>
 </div>
