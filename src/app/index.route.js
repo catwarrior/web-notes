@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -20,10 +20,16 @@
         controller: 'NoteController',
         controllerAs: 'notes'
       })
-      .state('note', {
-        url: '/note/new',
+      .state('note-edit', {
+        url: '/note/edit/:id',
         templateUrl: 'app/note/note.edit.html',
         controller: 'NoteEditController',
+        controllerAs: 'note'
+      })
+      .state('note-new', {
+        url: '/note/new',
+        templateUrl: 'app/note/note.new.html',
+        controller: 'NoteNewController',
         controllerAs: 'note'
       });
 

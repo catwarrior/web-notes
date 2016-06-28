@@ -1,7 +1,8 @@
 <div class="notes container">   
     <ul>
         <li ng-repeat="note in notes.all">
-            {{note.title}}
+            <span>{{note.title}}</span>
+            <div ng-bind-html="note.content"></div>
         </li>
     </ul>
 </div>

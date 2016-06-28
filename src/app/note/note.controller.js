@@ -6,14 +6,8 @@
         .controller('NoteController', NoteController);
 
     /** @ngInject */
-    function NoteController() {
+    function NoteController($location, Notes) {
         var vm = this;
-
-        vm.all = [
-            { title: "note1" },
-            { title: "note1" },
-            { title: "note1" },
-            { title: "note1" }
-        ];
+        vm.all = Notes;
     }
 })();

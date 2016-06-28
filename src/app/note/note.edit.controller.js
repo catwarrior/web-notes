@@ -6,23 +6,26 @@
         .controller('NoteEditController', NoteEditController);
 
     /** @ngInject */
-    function NoteEditController() {
+    function NoteEditController($location, Notes) {
         var vm = this;
-        vm.editor = new Pen('#editor');
         
-        vm.id = Date.now();
-        vm.title = "adfasdfasdf";
-        vm.content = "<h2>Enjoy live editing (+markdown)</h2>";
+        // vm.id = Date.now();
+        // vm.title = "adfasdfasdf";
+        // vm.content = "<h2>Enjoy live editing (+markdown)</h2>";
+
+        vm.editor = new Pen('#editor');
 
         vm.load = function() {
-            vm.editor.setContent(vm.content);
+            vm.editor.setContent(vm.note.content);
+        }
+        
+        vm.save = function(){
+            vm.note.content = vm.editor.getContent();
+            vm.note.$save();
+            console.log(vm.content);
         }
 
-        vm.save = function() {
-            vm.content = vm.editor.getContent();
-            console.log(vm.content);
-        };
-                
         vm.load();
+
     }
 })();
