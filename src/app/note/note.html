@@ -1,19 +1,13 @@
-<div class="container">
+<div class="container unit-list-wrapper">
     <ul class="unit-list">
-        <li class="unit" ng-repeat="note in vm.all" >
-           <a href="#edit/{{note.$id}}">
-                <div class="mask">
-                    <h4>{{note.title}}</h4>
-                    <div class="del-btn" title="删除">
-                        <a href="" ng-click="vm.delete(note)"><span>删除</span></a>
-                        <a href="#/edit/{{note.$id}}" ><span>编辑</span></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>{{note.title}}</h3>
-                    <div ng-bind-html="note.mainbody"></div>
-                </div>
-            </a>
+        <li class="unit" ng-repeat="note in vm.all">
+            <div class="tool-bar">
+                <a href="" ng-click="vm.delete(note)"><span class="glyphicon glyphicon-trash"></span></a>
+            </div>
+            <div class="content">
+                <a href="#/edit/{{note.$id}}"><h3 class="title">{{note.title}}</h3></a>
+                <div ng-bind-html="note.mainbody"></div>
+            </div>
         </li>
     </ul>
-</div>
+</div>  

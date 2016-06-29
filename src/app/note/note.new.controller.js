@@ -24,7 +24,7 @@
             
             vm.title = '';
             vm.content = '';
-            vm.editor.setContent(vm.mainbody);
+            editor.setContent(vm.mainbody);
 
             $location.path('/note');
         }

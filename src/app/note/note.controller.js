@@ -10,19 +10,25 @@
         var vm = this;
         vm.all = Notes;
 
-        vm.all.$loaded()
-            .then(function(x) {
-                console.log(x);
-            })
-            .catch(function(error) {
-                console.log("Error:", error);
-            });
+        console.log(1);
 
-        vm.delete = function(note) {
+        // dirty work here!!!
+        // $('.unit-list').on('mouseover', function (e) {
+        //     var tmp = $('.mask', $(e.target).closest('li'));
+        //     tmp.addClass('mson');
+        //     console.log(11);
+        // }).on('mouseleave', function (e) {
+        //     var tmp = $('.mask', $(e.target).closest('li'));
+        //     tmp.removeClass('mson');
+
+        //     console.log(12);
+        // });
+
+        vm.delete = function (note) {
             Notes.$remove(note);
         }
 
-        vm.update = function(note) {
+        vm.update = function (note) {
             Notes.$save(note);
         }
     }
